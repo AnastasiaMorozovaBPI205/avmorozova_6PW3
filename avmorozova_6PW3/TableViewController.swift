@@ -1,13 +1,12 @@
 //
-//  ViewController.swift
+//  TableViewController.swift
 //  avmorozova_6PW3
 //
 //  Created by Anastasia on 11.10.2021.
 //
-
 import UIKit
 
-class ViewController: UIViewController {
+class TableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +17,4 @@ class ViewController: UIViewController {
      return .lightContent
      }
 
-
 }
-
