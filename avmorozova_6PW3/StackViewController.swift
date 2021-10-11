@@ -8,14 +8,26 @@
 import UIKit
 
 class StackViewController: UIViewController {
-
+    
+    private var stack: UIStackView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupStackView()
     }
+
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-     return .lightContent
-     }
+    private func setupStackView() {
+        let stack = UIStackView(frame: .zero)
+        view.addSubview(stack)
+        
+        stack.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
+        stack.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
+        stack.pin(to: view, .left, .right)
+        
+        stack.backgroundColor = .white
+        
+        self.stack = stack
+    }
 
 }
