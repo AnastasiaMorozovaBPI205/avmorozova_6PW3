@@ -9,16 +9,41 @@ import UIKit
 class TableViewController: UIViewController {
 
     private var table: UITableView?
+    private var alarms: [AlarmCell] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupTableView()
         
-        table?.register(EyeCell.self, forCellReuseIdentifier: "eyeCell")
+        var alarmCell: AlarmCell
+        for _ in 0...200 {
+            alarmCell = AlarmCell()
+            
+            alarmCell.setupAlarmCell()
+            
+            alarmCell.setHeight(to: 50)
+            
+            alarms.append(alarmCell)
+        }
+        
+        alarms.sort{
+            ($0.alarmTimeLabel.text! as String) < ($1.alarmTimeLabel.text! as String)
+        }
+        
+        for n in 0...200 {
+            if (n % 2 == 0) {
+                alarms[n].backgroundColor = .green
+            }
+        }
+        
+        
+        table?.register(AlarmCell.self, forCellReuseIdentifier: "alarmCell")
+        
         table?.delegate = self
         table?.dataSource = self
-    }
 
+    }
     
     private func setupTableView() {
         let table = UITableView(frame: .zero, style: UITableView.Style.plain)
@@ -36,7 +61,8 @@ class TableViewController: UIViewController {
 }
 
 extension TableViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 300 }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { alarms.count
+    }
 
     func numberOfSections(in tableView: UITableView) -> Int { 1 }
 }
@@ -44,11 +70,16 @@ extension TableViewController: UITableViewDelegate {
 extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "eyeCell",
+            withIdentifier: "alarmCell",
             for: indexPath
-        ) as? EyeCell
+        ) as? AlarmCell
 
-        cell?.setupEye()
+        cell?.setupAlarmCell()
+        let alarm = alarms[indexPath.row]
+        cell?.backgroundColor = alarm.backgroundColor
+        cell?.alarmTimeLabel.text = alarm.alarmTimeLabel.text
+        cell?.alarmToggle.isOn = alarm.alarmToggle.isOn
+        
         return cell ?? UITableViewCell()
     }
 }
