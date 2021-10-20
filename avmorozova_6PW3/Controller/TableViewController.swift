@@ -13,6 +13,10 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        
+        table?.register(EyeCell.self, forCellReuseIdentifier: "eyeCell")
+        table?.delegate = self
+        table?.dataSource = self
     }
 
     
@@ -29,4 +33,22 @@ class TableViewController: UIViewController {
         self.table = table
     }
 
+}
+
+extension TableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 300 }
+
+    func numberOfSections(in tableView: UITableView) -> Int { 1 }
+}
+
+extension TableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "eyeCell",
+            for: indexPath
+        ) as? EyeCell
+
+        cell?.setupEye()
+        return cell ?? UITableViewCell()
+    }
 }

@@ -34,9 +34,7 @@ class StackViewController: UIViewController {
         scroll.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
         scroll.pin(to: view, .left, .right)
         
-        stack.pinTop(to: scroll.topAnchor)
-        stack.pinBottom(to: scroll.bottomAnchor)
-        stack.pin(to: view, .left, .right)
+        stack.pin(to: scroll, .top, .left, .right, .bottom)
         
         self.stack = stack
         self.scroll = scroll
@@ -50,7 +48,6 @@ class StackViewController: UIViewController {
         for n in 1...15 {
             alarmView = AlarmView()
             
-            alarmView.setWidth(to: 100)
             alarmView.setHeight(to: 50)
             
             let hours = Int.random(in: 0...23)
@@ -73,6 +70,7 @@ class StackViewController: UIViewController {
             }
             
             self.stack?.addArrangedSubview(alarmView)
+            alarmView.pinWidth(to: scroll!.widthAnchor)
         }
     }
 }
