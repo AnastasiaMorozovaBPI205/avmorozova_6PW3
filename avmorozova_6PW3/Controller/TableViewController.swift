@@ -9,16 +9,16 @@ import UIKit
 class TableViewController: UIViewController {
 
     private var table: UITableView?
-    private var alarms: [AlarmCell] = []
+    private var alarms: [AlarmTableViewCell] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
         
-        var alarmCell: AlarmCell
+        var alarmCell: AlarmTableViewCell
         for _ in 0...200 {
-            alarmCell = AlarmCell()
+            alarmCell = AlarmTableViewCell()
             
             alarmCell.setupAlarmCell()
             
@@ -38,7 +38,7 @@ class TableViewController: UIViewController {
         }
         
         
-        table?.register(AlarmCell.self, forCellReuseIdentifier: "alarmCell")
+        table?.register(AlarmTableViewCell.self, forCellReuseIdentifier: "alarmCell")
         
         table?.delegate = self
         table?.dataSource = self
@@ -72,7 +72,7 @@ extension TableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "alarmCell",
             for: indexPath
-        ) as? AlarmCell
+        ) as? AlarmTableViewCell
 
         cell?.setupAlarmCell()
         let alarm = alarms[indexPath.row]

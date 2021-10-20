@@ -16,7 +16,8 @@
 		5D573A56271429BB00902DB2 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D573A55271429BB00902DB2 /* CollectionViewController.swift */; };
 		5D573A582714317100902DB2 /* UIViewPinExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D573A572714317100902DB2 /* UIViewPinExtension.swift */; };
 		5D573A5A2714372200902DB2 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D573A592714372200902DB2 /* AlarmView.swift */; };
-		5DF16C682720738A00904CF2 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF16C672720738A00904CF2 /* AlarmCell.swift */; };
+		5DF16C682720738A00904CF2 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF16C672720738A00904CF2 /* AlarmTableViewCell.swift */; };
+		5DF16C6A27209E3200904CF2 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF16C6927209E3200904CF2 /* AlarmCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,8 @@
 		5D573A55271429BB00902DB2 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		5D573A572714317100902DB2 /* UIViewPinExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPinExtension.swift; sourceTree = "<group>"; };
 		5D573A592714372200902DB2 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
-		5DF16C672720738A00904CF2 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
+		5DF16C672720738A00904CF2 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		5DF16C6927209E3200904CF2 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				5D573A592714372200902DB2 /* AlarmView.swift */,
-				5DF16C672720738A00904CF2 /* AlarmCell.swift */,
+				5DF16C6927209E3200904CF2 /* AlarmCollectionViewCell.swift */,
+				5DF16C672720738A00904CF2 /* AlarmTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,9 +180,10 @@
 				5D573A522714294400902DB2 /* StackViewController.swift in Sources */,
 				5D573A3E2714278000902DB2 /* AppDelegate.swift in Sources */,
 				5D573A542714299300902DB2 /* TableViewController.swift in Sources */,
+				5DF16C6A27209E3200904CF2 /* AlarmCollectionViewCell.swift in Sources */,
 				5D573A582714317100902DB2 /* UIViewPinExtension.swift in Sources */,
 				5D573A402714278000902DB2 /* SceneDelegate.swift in Sources */,
-				5DF16C682720738A00904CF2 /* AlarmCell.swift in Sources */,
+				5DF16C682720738A00904CF2 /* AlarmTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

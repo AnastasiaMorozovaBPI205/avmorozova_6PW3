@@ -60,7 +60,9 @@ class StackViewController: UIViewController {
                 alarmView.alarmTimeLabel.text = "0\(hours):\(minutes)"
             } else if (minutes < 10) {
                 alarmView.alarmTimeLabel.text = "\(hours):0\(minutes)"
-            } else if (hours < 10 && minutes < 10) {
+            }
+            
+            if (hours < 10 && minutes < 10) {
                 alarmView.alarmTimeLabel.text = "0\(hours):0\(minutes)"
             }
             
