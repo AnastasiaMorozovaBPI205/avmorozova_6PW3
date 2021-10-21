@@ -42,10 +42,12 @@ class StackViewController: UIViewController {
     
     private func addAlarmView() {
         
-        self.stack?.axis = .vertical;
+        self.stack?.axis = .vertical
+        
+        var alarms: [AlarmView] = []
         
         var alarmView: AlarmView
-        for n in 1...15 {
+        for _ in 0...15 {
             alarmView = AlarmView()
             
             alarmView.setHeight(to: 50)
@@ -66,13 +68,20 @@ class StackViewController: UIViewController {
                 alarmView.alarmTimeLabel.text = "0\(hours):0\(minutes)"
             }
             
-            
+            alarms.append(alarmView)
+        }
+        
+        alarms.sort{
+            ($0.alarmTimeLabel.text! as String) < ($1.alarmTimeLabel.text! as String)
+        }
+        
+        for n in 0...15 {
             if (n % 2 == 0) {
-                alarmView.backgroundColor = .green
+                alarms[n].backgroundColor = .green
             }
             
-            self.stack?.addArrangedSubview(alarmView)
-            alarmView.pinWidth(to: scroll!.widthAnchor)
+            self.stack?.addArrangedSubview(alarms[n])
+            alarms[n].pinWidth(to: scroll!.widthAnchor)
         }
     }
 }
